@@ -1,15 +1,7 @@
 {
+  "extends": "./configs/base",
   "compilerOptions": {
-      "outDir": "./dist/",
-      "sourceMap": true,
-      "strict": true,
-      "noImplicitAny": true,
-      "strictNullChecks": true,
-      "module": "commonjs",
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "experimentalDecorators": true,
-      "target": "es6",
+      "outDir": "./dist/frontend",
       "jsx": "react",
       "importHelpers": true,
       "lib": [

@@ -1,5 +1,6 @@
 const { resolve } = require("path");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
@@ -10,7 +11,7 @@ module.exports = {
 
   output: {
     filename: "main.js",
-    path: resolve(__dirname, "dist")
+    path: resolve(__dirname, "dist", "public")
   },
 
   mode: "development",
@@ -87,6 +88,14 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: isDevelopment ? '[name].css' : '[name].[hash].css',
       chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
+    }),
+
+    new CopyPlugin({
+      patterns: [
+        { from: resolve(__dirname, "node_modules", "react", "umd", "react.development.js") },
+        { from: resolve(__dirname, "node_modules", "react-dom", "umd", "react-dom.development.js") }
+      ]
     })
+
   ]
 }

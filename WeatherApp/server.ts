@@ -1,12 +1,13 @@
 import express from "express";
 
 const server = express();
+const HTTP_PORT = process.env.PORT || 3000;
 
 server.use(
-  express.static("./dist"),
-  express.static(".")
+  express.static("./public"),
+  express.static("..")
 );
 
-server.listen(3000, () => {
-  console.log("Server is up on port 3000.");
+server.listen(HTTP_PORT, () => {
+  console.log(`Server is up on port ${HTTP_PORT}.`);
 });
